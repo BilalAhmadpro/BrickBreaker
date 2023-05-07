@@ -1,0 +1,1108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>5</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>120</x>
+      <y>135</y>
+      <w>130</w>
+      <h>490</h>
+    </coordinates>
+    <panel_attributes>brickbreaker::Board
+--
+-w: int
+-h: int
+-timer: Timer
+-DELAY : int
+-l: Lives
+-score : long
+-lives : int
+-levelNo: int
+-live: GameObject
+-gameends: boolean
+-wins: boolean
+-brick: GameObject
+-paddle: Paddle
+-ball: Movingball
+-ball1: GameObject
+-ball2: GameObject
+-movingball: Movingball
+-movingball1: Movingball
+-movingball2: Movingball
+-gamebrick: Brick
+-factoryCreater: FactoryCreater
+-powerupFactory: AbstractFactory
+-levelcount: int
+-gameObjects: ArrayList&lt;GameObject&gt;
+-fireball: boolean
+-bullet: GameObject
+-currentball: Movingball
+-hitpowerup = false: boolean
+-mball: Movingball
+-gamelost: boolean
+-gamePLayer: Player
+-timer2: Timer
+~audioClip: AudioClip
+~audioClip1: AudioClip
+~audioClip2: AudioClip
+~audioClip3: AudioClip
+~audioClip4: AudioClip
+~audioClip5: AudioClip
+--
++Board(): ctor
++Board(int i):: ctor
++Checkfireball(boolean fireball): boolean
++initBoard(): void
+
++paintComponent(Graphics g): void
+
++actionPerformed(ActionEvent ae): void
++chekList(): void
++movethelist(): void
++paddleandball(): void
++bulletbrick(): void
++paddlemove(): void
++gamewin(): void
++movetheball(): void
++powerupcreate(): void
++ballandbrick(): void
++action(): void
++Reset(Movingball b): void
++dispose(): void
++unbreakableCheck(): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>345</x>
+      <y>355</y>
+      <w>145</w>
+      <h>255</h>
+    </coordinates>
+    <panel_attributes>/brickbreaker::GameObject/
+--
+#x: int
+#y: int
+#img: Image
+#w: int
+#h: int
+#dx: int
+#dy: int
+#path: String
+-count1 : int
+-count2: int
+-imageNumber : int
+#leftDx: int
+#rightDx: int
+#pathstr: String
+--
++GameObject(int x, int y, String path): ctor
++duplicate(): void
++move(): void
++getBounds(): Rectangle
++moveTo(int x, int y): void
++paintComponent(Graphics2D g): void
++getDx(): int
++setDx(int dx): void
++getDy(): int
++setDy(int dy): void
++getLeftDx(): int
++setLeftDx(int dx): void
++getRightDx(): int
++setRightDx(int dx): void
++getX(): int
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>495</x>
+      <y>0</y>
+      <w>370</w>
+      <h>215</h>
+    </coordinates>
+    <panel_attributes>brickbreaker::Menu
+--
+-board: Board
+-jButton1: javax.swing.JButton
+-jButton2: javax.swing.JButton
+-jButton3: javax.swing.JButton
+-jLabel1: javax.swing.JLabel
+-jLabel2: javax.swing.JLabel
+-jLabel3: javax.swing.JLabel
+-jLabel4: javax.swing.JLabel
+-jLabel5: javax.swing.JLabel
+-jLabel6: javax.swing.JLabel
+-jLabel7: javax.swing.JLabel
+-jLabel8: javax.swing.JLabel
+-jLayeredPane1: javax.swing.JLayeredPane
+-jLayeredPane2: javax.swing.JLayeredPane
+-jPanel1: javax.swing.JPanel
+--
++Menu(Board board): ctor
++Menu(): ctor
+-initComponents(): // &lt;editor-fold defaultstate="collapsed" desc="Generated Code"&gt;//GEN-BEGIN:initComponents&#13;
+void
+-jButton1ActionPerformed(java.awt.event.ActionEvent evt): void
+-jButton3ActionPerformed(java.awt.event.ActionEvent evt): void
+-jButton2ActionPerformed(java.awt.event.ActionEvent evt): void
++main(String args[]): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>900</x>
+      <y>95</y>
+      <w>190</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>brickbreaker:LevelsLayout
+--
+-b: Brick
+-arr = new int[9][9]: int[][]
+-layout: int
+-ba = new ArrayList(): ArrayList&lt;Brick&gt;
+#changex : int
+#changey: int
+-brick: GameObject
+-factoryCreater = new FactoryCreater(): FactoryCreater
+-brickFactory: AbstractFactory
+-brickcount: int
+-levelcount: int
+-lockedlevels : boolean[]
+-f : FileWriting
+-blist : ArrayList&lt;GameObject&gt;
+--
++createGrid(): int[][]
++UpdateLevel(int[][] grid): void
++getbrickcount(): int
++getBricks(): ArrayList&lt;GameObject&gt;
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1175</x>
+      <y>430</y>
+      <w>140</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>brickbreaker::Movingball
+--
+-flag : boolean
+-yDir : int
+-counter : int
+-xDir : int
+-fireBallCheck : boolean
+--
+~Movingball(int x, int y, String path): ctor
++getBounds(): Rectangle
+~setXDir(int x): void
+~getYDir(): int
+~setYDir(int y): void
++keyPressed(KeyEvent e): void
++move(): void
++keyReleased(KeyEvent e): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>495</x>
+      <y>230</y>
+      <w>370</w>
+      <h>125</h>
+    </coordinates>
+    <panel_attributes>brickbreaker::NextLevel
+--
+-number : int
+-temp : int
+-jButton1: javax.swing.JButton
+-jButton2: javax.swing.JButton
+-jLabel1: javax.swing.JLabel
+--
++NextLevel(int level): ctor
+-initComponents(): // &lt;editor-fold defaultstate="collapsed" desc="Generated Code"&gt;//GEN-BEGIN:initComponents&#13;
+void
++jButton1ActionPerformed(java.awt.event.ActionEvent evt): void
++jButton2ActionPerformed(java.awt.event.ActionEvent evt): void
++main(String args[]): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>300</x>
+      <y>20</y>
+      <w>160</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>brickbreaker::Player
+--
+-firstName: String
+-lastName: String
+-player: Player
+-paddle: Paddle
+--
+-Player(String firstname, String lastname): ctor
++getPaddle(Paddle paddle): void
++getInstance(): Player
++keyPressed(KeyEvent e): void
++keyReleased(KeyEvent e): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1020</x>
+      <y>290</y>
+      <w>360</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>brickbreaker::Lost
+--
+-jButton1: javax.swing.JButton
+-jButton2: javax.swing.JButton
+-jLabel1: javax.swing.JLabel
+--
++Lost(): ctor
+-initComponents(): // &lt;editor-fold defaultstate="collapsed" desc="Generated Code"&gt;//GEN-BEGIN:initComponents&#13;
+void
+-jButton1ActionPerformed(java.awt.event.ActionEvent evt): void
++main(String args[]): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1030</x>
+      <y>475</y>
+      <w>125</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>brickbreaker::Lives
+--
+-x: int
+-y: int
+-w: int
+-h: int
+-img: Image
+--
++Lives(int x, int y, String path): ctor
++getBounds(): Rectangle
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>360</x>
+      <y>670</y>
+      <w>125</w>
+      <h>75</h>
+    </coordinates>
+    <panel_attributes>brickbreaker::Brick
+--
+--
+-Brick(int x, int y, String path): ctor
++getBounds(): Rectangle
++duplicate(): void
++getX(): int
++getY(): int
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>525</x>
+      <y>390</y>
+      <w>85</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>brickbreaker::Application
+--
+-l1: JLabel
+--
++Application(): ctor
++Application(Board b): ctor
+-initUI(): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>705</x>
+      <y>390</y>
+      <w>125</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>brickbreaker::Bullet
+--
+--
++Bullet(int x, int y, String path): ctor
++getBounds(): Rectangle
++move(): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1005</x>
+      <y>395</y>
+      <w>145</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>brickbreaker::GenerateLevels
+--
+-layout = new LevelLayout(): LevelLayout
+--
++getLevel(int count): int[][]
++ReadLevel(File file): int[][]
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>715</x>
+      <y>460</y>
+      <w>145</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>/brickbreaker::AbstractFactory/
+--
+--
++createObject(String object): GameObject
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>525</x>
+      <y>600</y>
+      <w>145</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>brickbreaker::BrickFactory
+--
+--
++createObject(String object): GameObject
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1015</x>
+      <y>815</y>
+      <w>180</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>brickbreaker::DecreaseSizePowerup
+--
+--
++DecreaseSizePowerup(int x, int y, String path): ctor
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>810</x>
+      <y>815</y>
+      <w>185</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>brickbreaker::DecreaseSpeedPowerup
+--
+--
++DecreaseSpeedPowerup(int x, int y, String path): ctor
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1215</x>
+      <y>815</y>
+      <w>165</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>brickbreaker::ExtraLifePowerup
+--
+--
++ExtraLifePowerup(int x, int y, String path): ctor
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>865</x>
+      <y>565</y>
+      <w>160</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>brickbreaker::FactoryCreater
+--
+--
++createFactory(String factory): AbstractFactory
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>820</x>
+      <y>755</y>
+      <w>160</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>brickbreaker::FireballPowerup
+--
+--
++FireballPowerup(int x, int y, String path): ctor
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1340</x>
+      <y>760</y>
+      <w>175</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>brickbreaker::IncreaseSizePowerup
+--
+--
++IncreaseSizePowerup(int x, int y, String path): ctor
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>685</x>
+      <y>660</y>
+      <w>185</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>brickbreaker::IncreaseSpeedPowerup
+--
+--
++IncreaseSpeedPowerup(int x, int y, String path): ctor
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>640</x>
+      <y>510</y>
+      <w>90</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>brickbreaker::MainClass
+--
+--
++main(String[] args): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>985</x>
+      <y>750</y>
+      <w>160</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>brickbreaker::MultiballPowerup
+--
+--
++MultiballPowerup(int x, int y, String path): ctor
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>630</x>
+      <y>795</y>
+      <w>145</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>brickbreaker::OneHitBrick
+--
+--
+-OneHitBrick(int x, int y, String path): ctor
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1165</x>
+      <y>760</y>
+      <w>165</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>brickbreaker::PaddlefirePowerup
+--
+--
++PaddlefirePowerup(int x, int y, String path): ctor
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1145</x>
+      <y>645</y>
+      <w>135</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>brickbreaker::PowerUp
+--
+--
++PowerUp(int x, int y, String path): ctor
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>960</x>
+      <y>640</y>
+      <w>145</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>brickbreaker::PowerupFactory
+--
+--
++createObject(String object): GameObject
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>135</x>
+      <y>795</y>
+      <w>150</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>brickbreaker::ThreeHitBrick
+--
+--
++ThreeHitBrick(int x, int y, String path): ctor
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>295</x>
+      <y>795</y>
+      <w>145</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>brickbreaker::TwoHitBrick
+--
+--
++TwoHitBrick(int x, int y, String path): ctor
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>455</x>
+      <y>795</y>
+      <w>165</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>brickbreaker::UnBreakableBrick
+--
+--
++UnBreakableBrick(int x, int y, String path): ctor
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>210</x>
+      <y>740</y>
+      <w>190</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>360.0;10.0;360.0;50.0;10.0;50.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>385</x>
+      <y>740</y>
+      <w>305</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0;590.0;50.0;590.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>385</x>
+      <y>740</y>
+      <w>170</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0;320.0;50.0;320.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>385</x>
+      <y>740</y>
+      <w>15</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1205</x>
+      <y>685</y>
+      <w>15</w>
+      <h>85</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1205</x>
+      <y>685</y>
+      <w>210</w>
+      <h>85</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0;400.0;60.0;400.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1055</x>
+      <y>685</y>
+      <w>165</w>
+      <h>75</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>310.0;10.0;310.0;60.0;10.0;60.0;10.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>925</x>
+      <y>680</y>
+      <w>295</w>
+      <h>85</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>570.0;10.0;570.0;70.0;10.0;70.0;10.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>895</x>
+      <y>655</y>
+      <w>75</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;someStereotype&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;200.0;10.0;10.0;130.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1035</x>
+      <y>675</y>
+      <w>75</w>
+      <h>85</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;someStereotype&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;150.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1055</x>
+      <y>675</y>
+      <w>135</w>
+      <h>95</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;someStereotype&gt;&gt;</panel_attributes>
+    <additional_attributes>250.0;170.0;250.0;60.0;10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1075</x>
+      <y>675</y>
+      <w>285</w>
+      <h>95</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;someStereotype&gt;&gt;</panel_attributes>
+    <additional_attributes>550.0;170.0;550.0;40.0;10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>785</x>
+      <y>680</y>
+      <w>435</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>850.0;10.0;850.0;140.0;10.0;140.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1145</x>
+      <y>680</y>
+      <w>75</w>
+      <h>145</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>130.0;10.0;130.0;70.0;10.0;70.0;10.0;270.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>945</x>
+      <y>680</y>
+      <w>275</w>
+      <h>145</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>530.0;10.0;530.0;70.0;410.0;70.0;410.0;250.0;10.0;250.0;10.0;270.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1205</x>
+      <y>680</y>
+      <w>110</w>
+      <h>145</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;140.0;200.0;140.0;200.0;270.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>580</x>
+      <y>635</y>
+      <w>75</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;someStereotype&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;320.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>655</x>
+      <y>635</y>
+      <w>70</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;someStereotype&gt;&gt;</panel_attributes>
+    <additional_attributes>120.0;320.0;120.0;220.0;10.0;220.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>185</x>
+      <y>630</y>
+      <w>350</w>
+      <h>175</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;someStereotype&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;330.0;10.0;10.0;680.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>295</x>
+      <y>630</y>
+      <w>240</w>
+      <h>175</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;someStereotype&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;330.0;10.0;10.0;460.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>615</x>
+      <y>495</y>
+      <w>180</w>
+      <h>115</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>340.0;10.0;340.0;150.0;10.0;150.0;10.0;210.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>780</x>
+      <y>495</y>
+      <w>190</w>
+      <h>155</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;290.0;360.0;290.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>425</x>
+      <y>605</y>
+      <w>15</w>
+      <h>75</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>485</x>
+      <y>560</y>
+      <w>745</w>
+      <h>95</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;460.0;10.0;460.0;140.0;1470.0;140.0;1470.0;170.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>485</x>
+      <y>430</y>
+      <w>230</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>440.0;10.0;380.0;10.0;380.0;70.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>245</x>
+      <y>330</y>
+      <w>290</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;470.0;10.0;560.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>310</x>
+      <y>135</y>
+      <w>140</w>
+      <h>215</h>
+    </coordinates>
+    <panel_attributes>Paddle
+--
+-Img :Image[]
+-count:long
+-changeX:int
+-type:int 
+-midpoint:int
+-list:ArrayList&lt;GameObject&gt;
+-flag:boolean 
+-path1:String
+- sizeChange:boolean 
+- powerCount:long
+--
+ +getChangeX():int
+ +setChangeX(int changeX):void
+ +Paddle(int x,int y,String path)
+ +Paddle(int x,int y, String path,int type)
+ +Duplicate():void
+ +move():void
+ +givelist(ArrayList&lt;arr&gt;):void
+ +getBounds():Rectaangle
+ +KetPressed(Keyevent e):void
++Fire():void
++PaintComponent(Graphiscs g)
++IncreaseSize():void
++DecreaseSize():void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>275</x>
+      <y>65</y>
+      <w>45</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>50.0;10.0;10.0;10.0;10.0;200.0;70.0;180.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>185</x>
+      <y>40</y>
+      <w>125</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;190.0;10.0;10.0;230.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>485</x>
+      <y>460</y>
+      <w>700</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;190.0;870.0;180.0;870.0;10.0;1380.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>485</x>
+      <y>495</y>
+      <w>555</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;120.0;870.0;110.0;870.0;10.0;1090.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>930</x>
+      <y>275</y>
+      <w>95</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>10.0;10.0;20.0;190.0;140.0;190.0;170.0;240.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>665</x>
+      <y>580</y>
+      <w>210</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;50.0;400.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1020</x>
+      <y>580</y>
+      <w>30</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>40.0;120.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>245</x>
+      <y>130</y>
+      <w>260</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>10.0;10.0;500.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>245</x>
+      <y>285</y>
+      <w>255</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>10.0;140.0;450.0;120.0;490.0;10.0</additional_attributes>
+  </element>
+</diagram>
